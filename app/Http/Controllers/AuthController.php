@@ -7,8 +7,6 @@ use App\Http\Requests\SignUpRequest;
 use App\Models\User;
 use App\Traits\ApiResponse;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
@@ -21,7 +19,8 @@ class AuthController extends Controller
      * @param SignUpRequest $request
      * @return JsonResponse
      */
-    public function signUp(SignUpRequest $request) : JsonResponse {
+    public function signUp(SignUpRequest $request) : JsonResponse
+    {
 
         $user = new User();
         $user->name = $request->name;
@@ -45,7 +44,8 @@ class AuthController extends Controller
      * @param SignInRequest $request
      * @return JsonResponse
      */
-    public function signIn(SignInRequest $request) : JsonResponse {
+    public function signIn(SignInRequest $request) : JsonResponse
+    {
 
         if(!Auth::attempt($request->only(['email','password']))){
             return $this->error('Invalid email or password', 401);
@@ -62,7 +62,8 @@ class AuthController extends Controller
 
     }
 
-    public function signOut() : JsonResponse{
+    public function signOut() : JsonResponse
+    {
 
         \auth()->user()->tokens()->delete();
 
