@@ -8,29 +8,24 @@ class MatrixMultiplication extends MatrixCalculator
 {
 
     /**
-     * @return array
-     * @throws \Exception
+     * @return MatrixCalculator
+     *
+     * @throws \Throwable
      */
-    function calculate(): array
+    function calculate(): MatrixCalculator
     {
 
         $matrixARowCount    =  $this->matrixA->getRowsCount();
-        $matrixAColumnCount =  $this->matrixA->getColumnsCount();
         $matrixA     =  $this->matrixA->getValues();
-
 
         $matrixBRowCount    =  $this->matrixB->getRowsCount();
         $matrixBColumnCount =  $this->matrixB->getColumnsCount();
         $matrixB      =  $this->matrixB->getValues();
 
-
-
        throw_if($matrixARowCount !== $matrixBColumnCount, 'Matrix A and B can not be multiplied');
-
        $result = [];
 
         for ($i = 0; $i < $matrixARowCount; $i++){
-
             for($j = 0; $j < $matrixBColumnCount; $j++){
                 $result[$i][$j] = 0;
                 for($k = 0; $k < $matrixBRowCount; $k++){
@@ -39,8 +34,8 @@ class MatrixMultiplication extends MatrixCalculator
             }
         }
 
+        $this->result = $result;
 
-
-        return $result;
+        return  $this;
     }
 }

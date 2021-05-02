@@ -23,5 +23,10 @@ abstract class  MatrixCalculator
         return $this->result;
     }
 
-    abstract function calculate(): array;
+    public function toExcel() : array
+    {
+        return (new MatrixToExcel())->toExelCol($this->result);
+    }
+
+    abstract function calculate(): MatrixCalculator;
 }

@@ -28,12 +28,13 @@ class MatrixCalculator extends Controller
         $matrixMultiplication = new MatrixMultiplication($arrayInput['a'], $arrayInput['b']);
 
         try {
-            $result = $matrixMultiplication->calculate();
+            $result = $matrixMultiplication->calculate()->toExcel();
             return  $this->success($result);
         }catch (\Exception $exception){
-            return  $this->error($exception->getMessage(), 400);
+            return  $this->error($exception->getMessage(), 500);
+        } catch (\Throwable $e) {
+            return  $this->error($e->getMessage(), 400);
         }
-
 
 
     }
