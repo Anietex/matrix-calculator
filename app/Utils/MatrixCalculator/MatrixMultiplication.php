@@ -16,13 +16,15 @@ class MatrixMultiplication extends MatrixCalculator
     {
 
         $matrixARowCount    =  $this->matrixA->getRowsCount();
+        $matrixAColumnCount =  $this->matrixA->getColumnsCount();
         $matrixA     =  $this->matrixA->getValues();
+
 
         $matrixBRowCount    =  $this->matrixB->getRowsCount();
         $matrixBColumnCount =  $this->matrixB->getColumnsCount();
         $matrixB      =  $this->matrixB->getValues();
 
-       throw_if($matrixARowCount !== $matrixBColumnCount, 'Matrix A and B can not be multiplied');
+       throw_if($matrixAColumnCount !== $matrixBRowCount, 'Matrix A and B can not be multiplied');
        $result = [];
 
         for ($i = 0; $i < $matrixARowCount; $i++){
@@ -33,7 +35,6 @@ class MatrixMultiplication extends MatrixCalculator
                 }
             }
         }
-
         $this->result = $result;
 
         return  $this;

@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\MatrixCalculator;
+use App\Http\Controllers\MatrixCalculatorController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -28,5 +28,5 @@ Route::group(['prefix' => '/auth'], function (){
 });
 
 Route::group(['prefix' => '/matrix', 'middleware' => 'auth:sanctum'], function (){
-    Route::get('multiply', [MatrixCalculator::class, 'multiply']);
+    Route::get('multiply', [MatrixCalculatorController::class, 'multiply']);
 });

@@ -6,10 +6,12 @@ namespace App\Utils\MatrixCalculator;
 class MatrixToExcel
 {
 
-    public function toExelCol(array $matrix): array
+    public function toExcelCol(array $matrix): array
     {
         $newMatrix = [];
-        foreach ($matrix as $key =>$row){
+        foreach ($matrix as $key => $row){
+            if(!is_array($row))
+                return [];
             $newMatrix[$key] = $this->mapIndexToExcelCol($row);
         }
         return $newMatrix;
