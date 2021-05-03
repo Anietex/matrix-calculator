@@ -62,6 +62,10 @@ class AuthController extends Controller
 
     }
 
+    /**
+     * Signs out User
+     * @return JsonResponse
+     */
     public function signOut() : JsonResponse
     {
 

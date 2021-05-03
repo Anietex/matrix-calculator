@@ -8,6 +8,7 @@ class MatrixMultiplication extends MatrixCalculator
 {
 
     /**
+     * Handles Matrix multiplication
      * @return MatrixCalculator
      *
      * @throws \Throwable
@@ -18,7 +19,6 @@ class MatrixMultiplication extends MatrixCalculator
         $matrixARowCount    =  $this->matrixA->getRowsCount();
         $matrixAColumnCount =  $this->matrixA->getColumnsCount();
         $matrixA     =  $this->matrixA->getValues();
-
 
         $matrixBRowCount    =  $this->matrixB->getRowsCount();
         $matrixBColumnCount =  $this->matrixB->getColumnsCount();

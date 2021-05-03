@@ -6,6 +6,10 @@ namespace App\Utils\MatrixCalculator;
 class MatrixToExcel
 {
 
+    /**
+     * @param array $matrix
+     * @return array
+     */
     public function toExcelCol(array $matrix): array
     {
         $newMatrix = [];
@@ -17,6 +21,11 @@ class MatrixToExcel
         return $newMatrix;
     }
 
+    /**
+     * Converts array numerical indexes to excel like column labels
+     * @param $row
+     * @return array
+     */
     private function mapIndexToExcelCol($row): array
     {
         $totalCol = count($row);

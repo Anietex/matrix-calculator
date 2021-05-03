@@ -3,7 +3,12 @@
 
 namespace App\Utils\MatrixCalculator;
 
-
+/**
+ * Base class for all matrix mathematical operations
+ *
+ * Class MatrixCalculator
+ * @package App\Utils\MatrixCalculator
+ */
 abstract class  MatrixCalculator
 {
     protected $matrixA;

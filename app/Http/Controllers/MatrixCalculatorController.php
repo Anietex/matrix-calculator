@@ -14,6 +14,13 @@ class MatrixCalculatorController extends Controller
 {
     use ApiResponse;
 
+    /**
+     * Handles validation and parsing of user submitted values
+     *
+     * @param Request $request
+     * @return JsonResponse
+     * @throws \Throwable
+     */
     public function multiply(Request $request): JsonResponse
     {
 
